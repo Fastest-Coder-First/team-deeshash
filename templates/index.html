@@ -1,1 +1,68 @@
-
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Weather Application</title>
+    <style>
+        .container {
+            margin: 20px auto;
+            max-width: 600px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .input-group {
+            margin-bottom: 10px;
+        }
+        .btn {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        .weather-info {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Weather Application</h2>
+        <form method="POST">
+            <div class="input-group">
+                <label for="city">Enter City:</label>
+                <input type="text" id="city" name="city" required>
+            </div>
+            <div class="input-group">
+                <input type="submit" value="Get Current Weather" name="current_weather" class="btn">
+                <input type="submit" value="Get Tomorrow's Weather" name="tomorrow_weather" class="btn">
+                <input type="submit" value="Get Hourly Weather" name="hourly_weather" class="btn">
+            </div>
+        </form>
+        {% if city %}
+            <div class="weather-info">
+                {% if temperature %}
+                    <p>Current Weather in {{ city }}: Temperature : {{ temperature }}°C, Status - {{ status }}</p>
+                {% endif %}
+                {% if tomorrow_temperature %}
+                    <p>Tomorrow's Weather in {{ city }}: Temperature : {{ tomorrow_temperature }}°C, Status - {{ tomorrow_status }}</p>
+                {% endif %}
+                {% if hourly_weather %}
+                    <p>Hourly Weather in {{ city }}:</p>
+                    <ul>
+                        {% for weather in hourly_weather %}
+                            <li>Time: {{ weather.time }}, Temperature: {{ weather.temperature }}°C, Status: {{ weather.status }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
