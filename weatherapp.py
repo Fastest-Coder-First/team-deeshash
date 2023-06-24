@@ -1,6 +1,34 @@
 from flask import Flask, request, render_template
 import requests
 from datetime import datetime, timedelta
+import json
+
+
+import time
+from time import sleep
+from sinchsms import SinchSMS
+
+# function for sending SMS
+def sendSMS(message):
+    
+    
+    url = "https://sms.api.sinch.com/xms/v1/2cb2b4905b914fb4acb93a89ff421eb6/batches"
+    headers = {
+        "Authorization": "Bearer 10bdd11209e14502bc895f10f858560b",
+        "Content-Type": "application/json"
+    }
+    data = {
+        "from": "447520651212",
+        "to": ["918688350918"],
+        "body": f"{message}"
+    }
+
+    response = requests.post(url, headers=headers, data=json.dumps(data))
+    print(response.json())
+
+	
+
+
 
 
 API_KEY = "5be3db1b048f20e0913cf906987fe4d3"
@@ -45,6 +73,15 @@ def get_hourly_weather(city):
             temperature = item.get("main", {}).get("temp")
             status = item.get("weather", [{}])[0].get("description")
             hourly_weather.append({"time": item_time, "temperature": temperature, "status": status})
+        for ite in hourly_weather:
+            if "rain" in str(ite["status"]):
+                message  = "Carry your umbrella! It might rain"
+                sendSMS(message)
+                break
+            if int(ite['temperature']) > '37':
+                message = "It's too sunny outside"
+                sendSMS(message)
+                break
         return hourly_weather
     else:
         return []
