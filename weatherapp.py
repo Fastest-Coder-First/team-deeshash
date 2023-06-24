@@ -2,13 +2,11 @@ from flask import Flask, request, render_template
 import requests
 from datetime import datetime, timedelta
 import json
-
-
 import time
 from time import sleep
 from sinchsms import SinchSMS
 
-# function for sending SMS
+# function for sending SMS, that uses sinch api
 def sendSMS(message):
     
     
@@ -29,11 +27,11 @@ def sendSMS(message):
 	
 
 
-
-
 API_KEY = "5be3db1b048f20e0913cf906987fe4d3"
 
 app = Flask(__name__)
+
+#function to get current weather, it gives city name and gets the temperature and status
 
 def get_weather(city):
     url = f"http://api.openweathermap.org/data/2.5/weather?q={city}&units=metric&appid={API_KEY}"
@@ -48,6 +46,8 @@ def get_weather(city):
         return temperature, status
     else:
         return None, None
+
+#function to get tomorrow's weather
 
 def get_tomorrow_weather(city):
     url = f"http://api.openweathermap.org/data/2.5/forecast?q={city}&units=metric&appid={API_KEY}"
@@ -68,6 +68,8 @@ def get_tomorrow_weather(city):
         return None, None
     else:
         return None, None
+
+#function to get hourly weather using the same api, providing city
 
 def get_hourly_weather(city):
     url = f"http://api.openweathermap.org/data/2.5/forecast?q={city}&cnt=10&units=metric&appid={API_KEY}"
