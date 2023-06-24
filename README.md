@@ -6,6 +6,11 @@ Welcome to the weather application, a simple and convenient weather monitoring a
 
 This weather application is designed to check weather of a city.
 
+## Architecture
+
+![ss](https://github.com/Fastest-Coder-First/team-deeshash/assets/86907177/99969d70-3678-4751-be3d-606bcfad8c80)
+
+
 ## Features
 
 - Hourly weather update: User can see weather changes every 3 hours.
