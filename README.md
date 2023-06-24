@@ -8,7 +8,8 @@ This weather application is designed to check weather of a city and it sends you
 
 ## Architecture
 
-![ss](https://github.com/Fastest-Coder-First/team-deeshash/assets/86907177/99969d70-3678-4751-be3d-606bcfad8c80)
+![s](https://github.com/Fastest-Coder-First/team-deeshash/assets/86907177/824c4592-22ae-4c16-936a-38e192bdb108)
+
 
 It sends a text message to your number if it rains.
 
