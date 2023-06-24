@@ -4,19 +4,21 @@ Welcome to the weather application, a simple and convenient weather monitoring a
 
 ## Overview
 
-This weather application is designed to check weather of a city.
+This weather application is designed to check weather of a city and it sends your mobile a notification if it rains.
 
 ## Architecture
 
 ![ss](https://github.com/Fastest-Coder-First/team-deeshash/assets/86907177/99969d70-3678-4751-be3d-606bcfad8c80)
 
+It sends a text message to your number if it rains.
 
 ## Features
 
 - Hourly weather update: User can see weather changes every 3 hours.
 - Tomorrow's weather: User can see the weather tomorrow.
 - Cli Application: User can use the application in the console.
-- Web application: User can monitor the weather changes in web application also
+- It sends your mobile phone a notification if it rains.
+- Web application: User can monitor the weather changes in web application also.
 
 ## Usage
 
