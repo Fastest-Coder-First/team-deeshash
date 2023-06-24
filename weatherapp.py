@@ -42,6 +42,9 @@ def get_weather(city):
     if response.status_code == 200:
         temperature = data['main']['temp']
         status = data['weather'][0]['description']
+        if "rain" in str(status):
+            message  = "Carry your umbrella! It might rain"
+            sendSMS(message)
         return temperature, status
     else:
         return None, None
@@ -52,12 +55,16 @@ def get_tomorrow_weather(city):
     data = response.json()
     if response.status_code == 200:
         tomorrow = datetime.now() + timedelta(days=1)
+        status = ""
         for item in data.get("list", []):
             item_time = datetime.strptime(item.get("dt_txt"), "%Y-%m-%d %H:%M:%S")
             if item_time.date() == tomorrow.date():
                 temperature = item.get("main", {}).get("temp")
                 status = item.get("weather", [{}])[0].get("description")
                 return temperature, status
+        if "rain" in str(status):
+            message  = "Carry your umbrella! It might rain"
+            sendSMS(message)
         return None, None
     else:
         return None, None
