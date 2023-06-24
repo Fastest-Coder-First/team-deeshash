@@ -21,6 +21,44 @@ It sends a text message to your number if it rains.
 - It sends your mobile phone a notification if it rains.
 - Web application: User can monitor the weather changes in web application also.
 
+## Working
+
+Working of CLI application, current weather and tomorrow's weather
+
+<br><br>
+
+![screeee](https://github.com/Fastest-Coder-First/team-deeshash/assets/86907177/758efc2f-9cb8-474c-a409-234de2c014cd)
+
+
+<br>
+
+
+CLI application for hourly weather
+<br><br>
+
+![screee2](https://github.com/Fastest-Coder-First/team-deeshash/assets/86907177/4fac9a2f-e5af-4c1d-9b65-653cd0ffc052)
+
+
+<br><br>
+
+
+Flask application
+<br><br>
+
+![screee3](https://github.com/Fastest-Coder-First/team-deeshash/assets/86907177/fa70eae9-f25c-433f-b3f1-1efa7356d21f)
+
+
+
+
+<br><br>
+
+Screenshot of notification
+<br><br>
+
+![Screens](https://github.com/Fastest-Coder-First/team-deeshash/assets/86907177/a246c159-04b1-482d-87d2-41a234d8ad61)
+
+
+
 ## Usage
 
 - Console application usage:
